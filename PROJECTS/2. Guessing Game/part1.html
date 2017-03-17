@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>     
+<meta name="description" content="This is a game where you have to try to guess which one is the color that the computer is thinking of. Super funny!">
+<title>Java Script Guessing Game</title>
+</head>
+<body onload="do_game()">
+
+	
+
+<script>
+var target_index;
+var guess_input_text;
+var guess_input;
+var finished = false;
+var colors =["blue", "cyan", "gold", "green", "magenta", "orange", "red", "white", "yellow"];
+var guesses = 0;
+
+function do_game() {
+	target_index = Math.floor(Math.random() * colors.length);
+	var random_color = colors[target_index];
+	
+	while (!finished) {
+		guess_input_text = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\n What color am i thinking of? " + random_color);
+		guess_input= guess_input_text.toString();
+		guesses += 1;
+		finished = check_guess();
+	}
+}
+	
+</script>	
+</body>
+</html>

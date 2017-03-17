@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>Learning Javascript</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+</head>
+
+<body>
+
+    <button id="stylesChanger"> Change the text!</button>
+   
+    <div id="firstDiv">This is some text</div>
+    
+    
+        
+     <script type="text/javascript">
+     
+     
+     var myArray=new Array();
+     
+     myArray[0]="pizza";
+     myArray[1]="chocolate";
+     
+     myOtherArray= ["rain", "sunshine"];
+     
+     myOtherArray.push("snow"); //add elements to the array
+     
+     myOtherArray.splice(1, 2); //remove from number 1 to number 2 (sunshine and snow)
+     
+     myOtherArray.splice(1, 0, "hail", "snow", "cloudy"); //start in number 0 (rain), remove 0 parts, add "hail", "snow" and "cloudy" after
+     
+     console.log(myOtherArray); //appears only on the console, inspecionar elemento
+     
+     
+     
+     document.getElementById("stylesChanger").onclick=function() {
+        
+        
+       
+        document.getElementById("firstDiv").innerHTML= myArray[0];
+        
+        
+        }
+     
+     
+     </script>
+    
+</body>
+</html>

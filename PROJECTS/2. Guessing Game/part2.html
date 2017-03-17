@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>     
+<meta name="description" content="This is a game where you have to try to guess which one is the color that the computer is thinking of. Super funny!">
+<title>Java Script Guessing Game</title>
+</head>
+<body onload="do_game()">
+
+	
+
+<script>
+var target_index;
+var guess_input_text;
+var guess_input;
+var finished = false;
+var colors =["blue", "cyan", "gold", "green", "magenta", "orange", "red", "white", "yellow"];
+var guesses = 0;
+
+function do_game() {
+	target_index = Math.floor(Math.random() * colors.length);
+	var random_color = colors[target_index];
+	
+	while (!finished) {
+		guess_input_text = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\n What color am i thinking of? " + random_color);
+		guess_input= guess_input_text.toString();
+		guesses += 1;
+		finished = check_guess();
+	}
+}
+	function check_guess() {
+
+if (colors.indexOf(guess_input) === -1) {
+
+alert("Sorry, I don't recognize your color.\n\n" + "Please try again.");
+
+return false;
+
+}
+
+if (colors.indexOf(guess_input) <= colors.length && colors.indexOf(guess_input) > -1 && colors.indexOf(guess_input) > target_index) {
+
+alert("Sorry, your guess is not correct.\n\n" + "Hint: your color is alphabetically higher than mine.\n\n" + "Please try again.");
+
+return false;
+
+}
+
+if (colors.indexOf(guess_input) <= colors.length && colors.indexOf(guess_input) > -1 && colors.indexOf(guess_input) < target_index) {
+
+alert("Sorry, your guess is not correct.\n\n" + "Hint: your color is alphabetically lower than mine.\n\n" + "Please try again.");
+
+return false;
+
+}
+		myBody=document.getElementsByTagName("body")[0];
+
+		myBody.style.background= guess_input;
+alert("Congratulations! You have guessed the color!\n\n" + "It took you " + guesses + " guesses to finish the game.\n\n" + "You can see your color in the background.");
+
+		
+return true;
+
+}
+			
+	
+	
+</script>	
+</body>
+</html>
